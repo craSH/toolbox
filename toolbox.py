@@ -95,6 +95,26 @@ def listSplit(string, delimeters):
         parts.append(substring)
     return parts
 
+def slice(string, start, fin, startpos=0, endpos=-1):
+    """
+    Returns the contents between the substrings start and fin.
+    Specify startpos/endpos to start/end at pos other than 0/-1 (slice notation) in string.
+    Return None if substring does not exist or start/end positions are invalid
+    """
+
+    slice_start = None
+    slice_end = None
+    result = None
+
+    try:
+        slice_start = string.index(start, startpos, endpos) + len(start) if start else 0
+        slice_end = string.index(fin, startpos + slice_start, endpos) if fin else len(string)
+        result = string[slice_start:slice_end]
+    except ValueError:
+        pass
+
+    return result
+
 def startsWithAny(string, startStrings):
     """
     Check if string starts with any character sequence in the startStrings list.
