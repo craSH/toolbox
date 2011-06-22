@@ -138,3 +138,4 @@ def time():
 
 def displit(x, acc=[]):
     return displit(x[2:], acc+[(x[:2])]) if x else acc
+charCode = lambda input: 'String.fromCharCode(' + ','.join(str(ord(i)) for i in input) + ');'
